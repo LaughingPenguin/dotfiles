@@ -15,3 +15,4 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.fillchars:append({ eob = " " })
+opt.autoread = true
