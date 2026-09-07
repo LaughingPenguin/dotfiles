@@ -16,3 +16,4 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.fillchars:append({ eob = " " })
 opt.autoread = true
+opt.laststatus = 3
