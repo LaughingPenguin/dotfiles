@@ -36,4 +36,28 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
 	end,
 })
 
-vim.cmd.colorscheme("catppuccin-nvim")
+local function apply_transparent_background()
+	local groups = {
+		"Normal",
+		"NormalFloat",
+		"SnacksNormal",
+		"SnacksNormalNC",
+		"SnacksPicker",
+		"SnacksPickerInput",
+		"SnacksPickerList",
+		"SnacksPickerPreview",
+		"SnacksPickerBox",
+	}
+	for _, group in ipairs(groups) do
+		local highlight = vim.api.nvim_get_hl(0, { name = group })
+		highlight.bg = "none"
+		highlight.ctermbg = "none"
+		vim.api.nvim_set_hl(0, group, highlight)
+	end
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = apply_transparent_background,
+})
+
+apply_transparent_background()

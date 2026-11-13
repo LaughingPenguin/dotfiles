@@ -19,6 +19,13 @@ return {
 				},
 			},
 		},
+		highlights = function(defaults)
+			for _, highlight in pairs(defaults.highlights) do
+				highlight.bg = "none"
+				highlight.ctermbg = "none"
+			end
+			return defaults.highlights
+		end,
 	},
 	config = function(_, opts)
 		require("bufferline").setup(opts)
